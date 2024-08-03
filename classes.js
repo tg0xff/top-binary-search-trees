@@ -34,6 +34,22 @@ class Tree {
       this.prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
     }
   }
+  insert(root, data) {
+    if (root === null) {
+      return new Node(data);
+    }
+    if (data === root.data) {
+      return root;
+    }
+
+    if (data < root.data) {
+      root.left = this.insert(root.left, data);
+    } else if (data > root.data) {
+      root.right = this.insert(root.right, data);
+    }
+
+    return root;
+  }
 }
 
 const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
