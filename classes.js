@@ -11,8 +11,8 @@ class Queue {
       this.#first = linkedList;
       this.#last = linkedList;
     } else {
-      linkedList.next = this.#first;
       this.#first.prev = linkedList;
+      linkedList.next = this.#first;
       this.#first = linkedList;
     }
     this.#length++;
