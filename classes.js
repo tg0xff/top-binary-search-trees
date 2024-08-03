@@ -90,4 +90,13 @@ export default class Tree {
     }
     return root;
   }
+  find(data, root = this.root) {
+    if (root === null) return null;
+    if (data === root.data) return root;
+    if (data < root.data) {
+      return this.find(data, root.left);
+    } else if (data > root.data) {
+      return this.find(data, root.right);
+    }
+  }
 }
