@@ -8,10 +8,10 @@ class Node {
 
 class Tree {
   constructor(array) {
-    const processedArr = this.prepareArray(array);
+    const processedArr = this.#processArray(array);
     this.root = this.buildTree(processedArr, 0, processedArr.length - 1);
   }
-  prepareArray(array) {
+  #processArray(array) {
     array.sort((a, b) => a - b);
     const uniqueValues = new Set();
     const uniqueArray = array.reduce((arr, item) => {
