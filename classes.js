@@ -6,12 +6,13 @@ class Queue {
   #last = null;
   #length = 0;
   enqueue(value) {
-    const linkedList = { value, next: null };
+    const linkedList = { value, next: null, prev: null };
     if (this.#length === 0) {
       this.#first = linkedList;
       this.#last = linkedList;
     } else {
       linkedList.next = this.#first;
+      this.#first.prev = linkedList;
       this.#first = linkedList;
     }
     this.#length++;
