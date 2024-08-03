@@ -32,12 +32,12 @@ class Tree {
   }
 }
 
-const arr = [];
-for (let i = 0; i < 100; i++) {
-  const num = Math.floor(100 * Math.random() + 1);
-  arr[i] = num;
-}
-arr.sort();
-console.log(arr);
+const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
+// for (let i = 0; i < 100; i++) {
+//   const num = Math.floor(100 * Math.random() + 1);
+//   arr[i] = num;
+// }
+// arr.sort();
+// console.log(arr);
 const tree = new Tree(arr);
 tree.prettyPrint(tree.root);
