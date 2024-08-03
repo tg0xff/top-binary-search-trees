@@ -1,3 +1,6 @@
+// This data structure is necessary to avoid using array as a
+// makeshift queue, and therefore avoid using .shift(), which is a
+// O(n) operation.
 class Queue {
   #first = null;
   #last = null;
