@@ -47,7 +47,7 @@ class Tree {
       this.prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
     }
   }
-  insert(root, data) {
+  insert(data, root = this.root) {
     if (root === null) {
       return new Node(data);
     }
@@ -56,9 +56,9 @@ class Tree {
     }
 
     if (data < root.data) {
-      root.left = this.insert(root.left, data);
+      root.left = this.insert(data, root.left);
     } else if (data > root.data) {
-      root.right = this.insert(root.right, data);
+      root.right = this.insert(data, root.right);
     }
 
     return root;
