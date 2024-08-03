@@ -33,3 +33,14 @@ tree.prettyPrint();
 tree.deleteItem(8);
 console.log("Deleted '8,' a leaf with two children:");
 tree.prettyPrint();
+
+// Find.
+console.log("Finding and printing node '67':")
+tree.prettyPrint(tree.find(67));
+console.log("Finding and printing the non-existent node '35':")
+tree.prettyPrint(tree.find(35));
+tree.insert(35);
+console.log("Added node '35':")
+tree.prettyPrint();
+console.log("Finding and printing node '35':")
+tree.prettyPrint(tree.find(35));
