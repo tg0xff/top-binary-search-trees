@@ -89,4 +89,12 @@ const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 // arr.sort();
 // console.log(arr);
 const tree = new Tree(arr);
+
+console.log("Full tree:");
+tree.prettyPrint(tree.root);
+tree.deleteItem(3)
+console.log("Deleted '3,' a leaf with no children:")
+tree.prettyPrint(tree.root);
+tree.deleteItem(5)
+console.log("Deleted '5,' a leaf with one child:")
 tree.prettyPrint(tree.root);
