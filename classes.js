@@ -1,4 +1,7 @@
 class Queue {
+  #first = null;
+  #last = null;
+  #length = 0;
 }
 
 class Node {
