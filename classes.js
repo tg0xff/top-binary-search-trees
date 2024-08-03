@@ -63,6 +63,22 @@ class Tree {
 
     return root;
   }
+  deleteItem(data, root = this.root) {
+    if (root === null) return null;
+    if (data === root.data) {
+      // Delete leaf when it has only one child.
+      if (root.left && !root.right) return root.left;
+      if (!root.left && root.right) return root.right;
+      // Delete leaf when it has no children.
+      return null;
+    }
+    if (data < root.data) {
+      root.left = this.deleteItem(data, root.left);
+    } else if (data > root.data) {
+      root.right = this.deleteItem(data, root.right);
+    }
+    return root;
+  }
 }
 
 const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
