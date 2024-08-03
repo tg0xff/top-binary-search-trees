@@ -9,7 +9,7 @@ class Node {
 class Tree {
   constructor(array) {
     const processedArr = this.#processArray(array);
-    this.root = this.buildTree(processedArr, 0, processedArr.length - 1);
+    this.root = this.#buildTree(processedArr, 0, processedArr.length - 1);
   }
   #processArray(array) {
     array.sort((a, b) => a - b);
@@ -23,12 +23,12 @@ class Tree {
     }, []);
     return uniqueArray;
   }
-  buildTree(array, start, end) {
+  #buildTree(array, start, end) {
     if (start > end) return null;
     const mid = Math.floor((start + end) / 2);
     const node = new Node(array[mid]);
-    node.left = this.buildTree(array, start, mid - 1);
-    node.right = this.buildTree(array, mid + 1, end);
+    node.left = this.#buildTree(array, start, mid - 1);
+    node.right = this.#buildTree(array, mid + 1, end);
     return node;
   }
   prettyPrint(node, prefix = "", isLeft = true) {
