@@ -17,6 +17,19 @@ class Queue {
     }
     this.#length++;
   }
+  dequeue() {
+    if (this.#length === 0) return null;
+    const val = this.#last.value;
+    if (this.#length === 1) {
+      this.#first = null;
+      this.#last = null;
+    } else {
+      this.#last = this.#last.prev;
+      this.#last.next = null;
+    }
+    this.#length--;
+    return val;
+  }
 }
 
 class Node {
