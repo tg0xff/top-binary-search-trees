@@ -66,9 +66,20 @@ class Tree {
   deleteItem(data, root = this.root) {
     if (root === null) return null;
     if (data === root.data) {
+      // Delete leaf when it has two children.
+      if (root.left && root.right) {
+        let nextSmallest = root.right;
+        while (nextSmallest.left !== null) {
+          nextSmallest = nextSmallest.left;
+        }
+        const dataTmp = nextSmallest.data;
+        this.deleteItem(nextSmallest.data, this.root);
+        root.data = dataTmp;
+        return root;
+      }
       // Delete leaf when it has only one child.
-      if (root.left && !root.right) return root.left;
-      if (!root.left && root.right) return root.right;
+      if (root.left) return root.left;
+      if (root.right) return root.right;
       // Delete leaf when it has no children.
       return null;
     }
@@ -92,9 +103,12 @@ const tree = new Tree(arr);
 
 console.log("Full tree:");
 tree.prettyPrint();
-tree.deleteItem(3)
-console.log("Deleted '3,' a leaf with no children:")
+tree.deleteItem(3);
+console.log("Deleted '3,' a leaf with no children:");
 tree.prettyPrint();
-tree.deleteItem(5)
-console.log("Deleted '5,' a leaf with one child:")
+tree.deleteItem(5);
+console.log("Deleted '5,' a leaf with one child:");
+tree.prettyPrint();
+tree.deleteItem(8);
+console.log("Deleted '8,' a leaf with two children:");
 tree.prettyPrint();
