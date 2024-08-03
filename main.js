@@ -11,6 +11,19 @@ const tree = new Tree(arr);
 
 console.log("Full tree:");
 tree.prettyPrint();
+
+// Insertion.
+tree.insert(27);
+console.log("Inserted '27':");
+tree.prettyPrint();
+tree.insert(33);
+console.log("Inserted '33':");
+tree.prettyPrint();
+tree.insert(8);
+console.log("Inserted '8,' a duplicate:");
+tree.prettyPrint();
+
+// Deletion.
 tree.deleteItem(3);
 console.log("Deleted '3,' a leaf with no children:");
 tree.prettyPrint();
