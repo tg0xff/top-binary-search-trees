@@ -41,6 +41,7 @@ for (let i = 0; i < 16; i++) {
 }
 console.log("Added 16 more random numbers.");
 console.log(`Is the tree balanced? ${tree.isBalanced() ? "Yes" : "No"}`);
+
 tree.rebalance();
 console.log("Rebalanced the tree.");
 console.log(`Is the tree balanced? ${tree.isBalanced() ? "Yes" : "No"}`);
