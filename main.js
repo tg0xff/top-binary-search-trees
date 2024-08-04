@@ -45,3 +45,27 @@ console.log(`Is the tree balanced? ${tree.isBalanced() ? "Yes" : "No"}`);
 tree.rebalance();
 console.log("Rebalanced the tree.");
 console.log(`Is the tree balanced? ${tree.isBalanced() ? "Yes" : "No"}`);
+
+console.log("Printing elements in level order:")
+printString = "";
+tree.levelOrder((node) => printString += `, ${node.data}`);
+printString = printString.slice(2);
+console.log(printString);
+
+console.log("Printing elements in pre-order:")
+printString = "";
+tree.preOrder((node) => printString += `, ${node.data}`);
+printString = printString.slice(2);
+console.log(printString);
+
+console.log("Printing elements in in-order:")
+printString = "";
+tree.inOrder((node) => printString += `, ${node.data}`);
+printString = printString.slice(2);
+console.log(printString);
+
+console.log("Printing elements in post-order:")
+printString = "";
+tree.postOrder((node) => printString += `, ${node.data}`);
+printString = printString.slice(2);
+console.log(printString);
