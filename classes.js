@@ -149,6 +149,15 @@ export default class Tree {
       if (node.right !== null) queue.enqueue(node.right);
     }
   }
+  preOrder(callback, root = this.root) {
+    if (!callback) {
+      throw new Error("A callback is required.");
+    }
+    if (root === null) return;
+    callback(root);
+    this.preOrder(callback, root.left);
+    this.preOrder(callback, root.right);
+  }
   inOrder(callback, node = this.root) {
     if (!callback) {
       throw new Error("A callback is required.");
