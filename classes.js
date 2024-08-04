@@ -234,4 +234,9 @@ export default class Tree {
       1 >= Math.abs(leftHeight - rightHeight)
     );
   }
+  rebalance() {
+    const values = [];
+    this.inOrder((node) => values.push(node.data));
+    this.root = this.#buildTree(values, 0, values.length - 1);
+  }
 }
