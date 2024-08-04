@@ -22,3 +22,9 @@ printString = "";
 tree.preOrder((node) => printString += `, ${node.data}`);
 printString = printString.slice(2);
 console.log(printString);
+
+console.log("Printing elements in post-order:")
+printString = "";
+tree.postOrder((node) => printString += `, ${node.data}`);
+printString = printString.slice(2);
+console.log(printString);
