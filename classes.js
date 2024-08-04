@@ -136,4 +136,17 @@ export default class Tree {
       return this.find(data, root.right);
     }
   }
+  levelOrder(callback) {
+    if (!callback) {
+      throw new Error("A callback is required.");
+    }
+    const queue = new Queue();
+    queue.enqueue(this.root);
+    while (!queue.isEmpty()) {
+      const node = queue.dequeue();
+      callback(node);
+      if (node.left !== null) queue.enqueue(node.left);
+      if (node.right !== null) queue.enqueue(node.right);
+    }
+  }
 }
