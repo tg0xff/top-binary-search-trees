@@ -193,4 +193,35 @@ export default class Tree {
     }
     return height;
   }
+  depth(node) {
+    if (!node) return 0;
+
+    /* Iterative. */
+    // let depth = 0;
+    // let currentNode = this.root;
+    // while (currentNode !== node) {
+    //   if (currentNode === null) {
+    //     return 0;
+    //   }
+    //   if (node.data < currentNode.data) {
+    //     currentNode = currentNode.left;
+    //   } else if (node.data > currentNode.data) {
+    //     currentNode = currentNode.right;
+    //   }
+    //   depth++;
+    // }
+    // return depth;
+
+    /* Recursive. */
+    function countEdges(n, targetNode, root) {
+      if (root === null) return 0;
+      if (targetNode === root) return n;
+      return countEdges(
+        n + 1,
+        targetNode,
+        targetNode.data < root.data ? root.left : root.right,
+      );
+    }
+    return countEdges(0, node, this.root);
+  }
 }
