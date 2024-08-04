@@ -197,32 +197,32 @@ export default class Tree {
     if (!node) return 0;
 
     /* Iterative. */
-    // let depth = 0;
-    // let currentNode = this.root;
-    // while (currentNode !== node) {
-    //   if (currentNode === null) {
-    //     return 0;
-    //   }
-    //   if (node.data < currentNode.data) {
-    //     currentNode = currentNode.left;
-    //   } else if (node.data > currentNode.data) {
-    //     currentNode = currentNode.right;
-    //   }
-    //   depth++;
-    // }
-    // return depth;
+    let depth = 0;
+    let currentNode = startNode;
+    while (currentNode !== node) {
+      if (currentNode === null) {
+        return 0;
+      }
+      if (node.data < currentNode.data) {
+        currentNode = currentNode.left;
+      } else if (node.data > currentNode.data) {
+        currentNode = currentNode.right;
+      }
+      depth++;
+    }
+    return depth;
 
     /* Recursive. */
-    function countEdges(targetNode, root, n = 0) {
-      if (root === null) return 0;
-      if (targetNode === root) return n;
-      return countEdges(
-        targetNode,
-        targetNode.data < root.data ? root.left : root.right,
-        n + 1,
-      );
-    }
-    return countEdges(node, startNode);
+    // function countEdges(targetNode, root, n = 0) {
+    //   if (root === null) return 0;
+    //   if (targetNode === root) return n;
+    //   return countEdges(
+    //     targetNode,
+    //     targetNode.data < root.data ? root.left : root.right,
+    //     n + 1,
+    //   );
+    // }
+    // return countEdges(node, startNode);
   }
   isBalanced(node = this.root) {
     if (node === null) return true;
