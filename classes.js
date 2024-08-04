@@ -4,10 +4,10 @@
 class Queue {
   #first = null;
   #last = null;
-  #length = 0;
+  length = 0;
   enqueue(value) {
     const linkedList = { value, next: null, prev: null };
-    if (this.#length === 0) {
+    if (this.length === 0) {
       this.#first = linkedList;
       this.#last = linkedList;
     } else {
@@ -15,23 +15,23 @@ class Queue {
       linkedList.next = this.#first;
       this.#first = linkedList;
     }
-    this.#length++;
+    this.length++;
   }
   dequeue() {
-    if (this.#length === 0) return null;
+    if (this.length === 0) return null;
     const val = this.#last.value;
-    if (this.#length === 1) {
+    if (this.length === 1) {
       this.#first = null;
       this.#last = null;
     } else {
       this.#last = this.#last.prev;
       this.#last.next = null;
     }
-    this.#length--;
+    this.length--;
     return val;
   }
   isEmpty() {
-    return this.#length === 0;
+    return this.length === 0;
   }
 }
 
@@ -175,5 +175,10 @@ export default class Tree {
     this.postOrder(callback, root.left);
     this.postOrder(callback, root.right);
     callback(root);
+  }
+  height(root = this.root) {
+    if (root === null) return 0;
+    const queue = new Queue();
+    queue.enqueue(root);
   }
 }
