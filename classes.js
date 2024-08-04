@@ -213,15 +213,15 @@ export default class Tree {
     // return depth;
 
     /* Recursive. */
-    function countEdges(n, targetNode, root) {
+    function countEdges(targetNode, root = this.root, n = 0) {
       if (root === null) return 0;
       if (targetNode === root) return n;
       return countEdges(
-        n + 1,
         targetNode,
         targetNode.data < root.data ? root.left : root.right,
+        n + 1,
       );
     }
-    return countEdges(0, node, this.root);
+    return countEdges(node);
   }
 }
