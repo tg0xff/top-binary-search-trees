@@ -193,7 +193,7 @@ export default class Tree {
     }
     return height;
   }
-  depth(node) {
+  depth(node, startNode = this.root) {
     if (!node) return 0;
 
     /* Iterative. */
@@ -213,7 +213,7 @@ export default class Tree {
     // return depth;
 
     /* Recursive. */
-    function countEdges(targetNode, root = this.root, n = 0) {
+    function countEdges(targetNode, root, n = 0) {
       if (root === null) return 0;
       if (targetNode === root) return n;
       return countEdges(
@@ -222,6 +222,6 @@ export default class Tree {
         n + 1,
       );
     }
-    return countEdges(node);
+    return countEdges(node, startNode);
   }
 }
