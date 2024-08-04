@@ -30,6 +30,9 @@ class Queue {
     this.#length--;
     return val;
   }
+  isEmpty() {
+    return this.#length === 0;
+  }
 }
 
 class Node {
