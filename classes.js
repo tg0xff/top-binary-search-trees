@@ -224,4 +224,14 @@ export default class Tree {
     }
     return countEdges(node, startNode);
   }
+  isBalanced(node = this.root) {
+    if (node === null) return true;
+    const leftHeight = this.height(node.left);
+    const rightHeight = this.height(node.right);
+    return (
+      this.isBalanced(node.left) &&
+      this.isBalanced(node.right) &&
+      1 >= Math.max(leftHeight, rightHeight) - Math.min(leftHeight, rightHeight)
+    );
+  }
 }
