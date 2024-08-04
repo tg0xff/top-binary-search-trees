@@ -1,12 +1,10 @@
 import Tree from "./classes.js";
 
-const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
-// for (let i = 0; i < 100; i++) {
-//   const num = Math.floor(100 * Math.random() + 1);
-//   arr[i] = num;
-// }
-// arr.sort();
-// console.log(arr);
+const arr = [];
+for (let i = 0; i < 100; i++) {
+  const num = Math.floor(100 * Math.random() + 1);
+  arr[i] = num;
+}
 const tree = new Tree(arr);
 
 console.log("Full tree:");
@@ -44,3 +42,8 @@ console.log("Added node '35':")
 tree.prettyPrint();
 console.log("Finding and printing node '35':")
 tree.prettyPrint(tree.find(35));
+
+console.log(tree.isBalanced());
+tree.rebalance();
+console.log(tree.isBalanced());
+tree.prettyPrint();
