@@ -176,17 +176,17 @@ export default class Tree {
     this.postOrder(callback, root.right);
     callback(root);
   }
-  height(root = this.root) {
-    if (root === null) return 0;
+  height(node = this.root) {
+    if (node === null) return 0;
     let height = 0;
     const queue = new Queue();
-    queue.enqueue(root);
+    queue.enqueue(node);
     while (!queue.isEmpty()) {
       let levelBreadth = queue.size;
       while (levelBreadth > 0) {
-        const node = queue.dequeue();
-        if (node.left) queue.enqueue(node.left);
-        if (node.right) queue.enqueue(node.right);
+        const currentNode = queue.dequeue();
+        if (currentNode.left) queue.enqueue(currentNode.left);
+        if (currentNode.right) queue.enqueue(currentNode.right);
         levelBreadth--;
       }
       height++;
