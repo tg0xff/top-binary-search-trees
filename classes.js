@@ -158,13 +158,13 @@ export default class Tree {
     this.preOrder(callback, root.left);
     this.preOrder(callback, root.right);
   }
-  inOrder(callback, node = this.root) {
+  inOrder(callback, root = this.root) {
     if (!callback) {
       throw new Error("A callback is required.");
     }
-    if (node === null) return;
-    this.inOrder(callback, node.left);
-    callback(node);
-    this.inOrder(callback, node.right);
+    if (root === null) return;
+    this.inOrder(callback, root.left);
+    callback(root);
+    this.inOrder(callback, root.right);
   }
 }
