@@ -231,7 +231,7 @@ export default class Tree {
     return (
       this.isBalanced(node.left) &&
       this.isBalanced(node.right) &&
-      1 >= Math.max(leftHeight, rightHeight) - Math.min(leftHeight, rightHeight)
+      1 >= Math.abs(leftHeight - rightHeight)
     );
   }
 }
