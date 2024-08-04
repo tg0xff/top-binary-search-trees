@@ -14,13 +14,15 @@ console.log(`Is the tree balanced? ${tree.isBalanced() ? "Yes" : "No"}`);
 console.log("Printing elements in level order:")
 arr = [];
 tree.levelOrder((node) => arr.push(node.data));
-printString = `${arr[0]}`;
+printString = "";
 arr.forEach((item) => printString += `, ${item}`);
+printString = printString.slice(2);
 console.log(printString);
 
 console.log("Printing elements in pre-order:")
 arr = [];
 tree.preOrder((node) => arr.push(node.data));
-printString = `${arr[0]}`;
+printString = "";
 arr.forEach((item) => printString += `, ${item}`);
+printString = printString.slice(2);
 console.log(printString);
