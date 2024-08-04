@@ -4,10 +4,10 @@
 class Queue {
   #first = null;
   #last = null;
-  length = 0;
+  size = 0;
   enqueue(value) {
     const linkedList = { value, next: null, prev: null };
-    if (this.length === 0) {
+    if (this.size === 0) {
       this.#first = linkedList;
       this.#last = linkedList;
     } else {
@@ -15,23 +15,23 @@ class Queue {
       linkedList.next = this.#first;
       this.#first = linkedList;
     }
-    this.length++;
+    this.size++;
   }
   dequeue() {
-    if (this.length === 0) return null;
+    if (this.size === 0) return null;
     const val = this.#last.value;
-    if (this.length === 1) {
+    if (this.size === 1) {
       this.#first = null;
       this.#last = null;
     } else {
       this.#last = this.#last.prev;
       this.#last.next = null;
     }
-    this.length--;
+    this.size--;
     return val;
   }
   isEmpty() {
-    return this.length === 0;
+    return this.size === 0;
   }
 }
 
