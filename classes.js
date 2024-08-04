@@ -178,7 +178,19 @@ export default class Tree {
   }
   height(root = this.root) {
     if (root === null) return 0;
+    let height = 0;
     const queue = new Queue();
     queue.enqueue(root);
+    while (!queue.isEmpty()) {
+      let levelBreadth = queue.size;
+      while (levelBreadth > 0) {
+        const node = queue.dequeue();
+        if (node.left) queue.enqueue(node.left);
+        if (node.right) queue.enqueue(node.right);
+        levelBreadth--;
+      }
+      height++;
+    }
+    return height;
   }
 }
