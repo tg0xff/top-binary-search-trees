@@ -167,4 +167,13 @@ export default class Tree {
     callback(root);
     this.inOrder(callback, root.right);
   }
+  postOrder(callback, root = this.root) {
+    if (!callback) {
+      throw new Error("A callback is required.");
+    }
+    if (root === null) return;
+    this.postOrder(callback, root.left);
+    this.postOrder(callback, root.right);
+    callback(root);
+  }
 }
