@@ -6,3 +6,5 @@ for (let i = 0; i < 100; i++) {
   arr[i] = num;
 }
 const tree = new Tree(arr);
+
+console.log(`Is the tree balanced? ${tree.isBalanced() ? "Yes" : "No"}`);
