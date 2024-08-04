@@ -1,28 +1,24 @@
 import Tree from "./classes.js";
 
-let arr = [];
-let printString = "";
-
+const treeValues = [];
 for (let i = 0; i < 100; i++) {
   const num = Math.floor(100 * Math.random() + 1);
-  arr[i] = num;
+  treeValues[i] = num;
 }
-const tree = new Tree(arr);
+const tree = new Tree(treeValues);
 
 console.log(`Is the tree balanced? ${tree.isBalanced() ? "Yes" : "No"}`);
 
+let printString = "";
+
 console.log("Printing elements in level order:")
-arr = [];
-tree.levelOrder((node) => arr.push(node.data));
 printString = "";
-arr.forEach((item) => printString += `, ${item}`);
+tree.levelOrder((node) => printString += `, ${node.data}`);
 printString = printString.slice(2);
 console.log(printString);
 
 console.log("Printing elements in pre-order:")
-arr = [];
-tree.preOrder((node) => arr.push(node.data));
 printString = "";
-arr.forEach((item) => printString += `, ${item}`);
+tree.preOrder((node) => printString += `, ${node.data}`);
 printString = printString.slice(2);
 console.log(printString);
