@@ -34,3 +34,10 @@ printString = "";
 tree.postOrder((node) => printString += `, ${node.data}`);
 printString = printString.slice(2);
 console.log(printString);
+
+for (let i = 0; i < 16; i++) {
+  const num = Math.floor(100 * Math.random() + 1);
+  tree.insert(num);
+}
+console.log("Added 16 more random numbers.");
+console.log(`Is the tree balanced? ${tree.isBalanced() ? "Yes" : "No"}`);
