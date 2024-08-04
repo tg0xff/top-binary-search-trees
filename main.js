@@ -17,3 +17,10 @@ tree.levelOrder((node) => arr.push(node.data));
 printString = `${arr[0]}`;
 arr.forEach((item) => printString += `, ${item}`);
 console.log(printString);
+
+console.log("Printing elements in pre-order:")
+arr = [];
+tree.preOrder((node) => arr.push(node.data));
+printString = `${arr[0]}`;
+arr.forEach((item) => printString += `, ${item}`);
+console.log(printString);
